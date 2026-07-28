@@ -4,11 +4,65 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Umme Kalsoom | Portfolio</title>
-  input, textarea{
+
+<style>
+body{
+font-family:Arial,sans-serif;
+margin:0;
+background:#f5f5f5;
+color:#333;
+}
+
+nav{
+background:#2c3e50;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:15px;
+font-weight:bold;
+}
+
+header{
+background:#3498db;
+color:white;
+text-align:center;
+padding:60px 20px;
+}
+
+section{
+max-width:900px;
+margin:30px auto;
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+
+h2{
+color:#3498db;
+}
+
+footer{
+background:#2c3e50;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:30px;
+}
+
+input,
+textarea{
 width:100%;
 padding:10px;
 margin-top:5px;
+margin-bottom:10px;
 box-sizing:border-box;
+border:1px solid #ccc;
+border-radius:5px;
 }
 
 button{
@@ -23,49 +77,6 @@ font-size:16px;
 
 button:hover{
 background:#2980b9;
-}
-
-<style>
-body{
-font-family:Arial,sans-serif;
-margin:0;
-background:#f5f5f5;
-color:#333;
-}
-nav{
-background:#2c3e50;
-padding:15px;
-text-align:center;
-}
-nav a{
-color:white;
-text-decoration:none;
-margin:15px;
-font-weight:bold;
-}
-header{
-background:#3498db;
-color:white;
-text-align:center;
-padding:60px 20px;
-}
-section{
-max-width:900px;
-margin:30px auto;
-background:white;
-padding:25px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,.1);
-}
-h2{
-color:#3498db;
-}
-footer{
-background:#2c3e50;
-color:white;
-text-align:center;
-padding:20px;
-margin-top:30px;
 }
 </style>
 
@@ -113,9 +124,7 @@ My goal is to become a Machine Learning Engineer.
 
 <h3>CTR Prediction Case Study</h3>
 <p>
-Built a beginner Machine Learning workflow for Click Through Rate prediction,
-including problem understanding, preprocessing, feature engineering,
-model selection, training and evaluation.
+Built a beginner Machine Learning workflow for Click Through Rate prediction, including problem understanding, preprocessing, feature engineering, model selection, training and evaluation.
 </p>
 
 <h3>Netflix Audience Rating Classification</h3>
@@ -129,33 +138,34 @@ Created beginner-friendly charts and visualizations for understanding datasets.
 </p>
 
 </section>
-  <section id="contact">
+
+<section id="contact">
 <h2>Contact Me</h2>
 
 <form action="https://formsubmit.co/umekalsoom9965@gmail.com" method="POST">
 
-<input type="text" name="name" placeholder="Your Name" required><br><br>
+<input type="hidden" name="_captcha" value="false">
 
-<input type="email" name="email" placeholder="Your Email" required><br><br>
+<input type="text" name="name" placeholder="Your Name" required>
 
-<textarea name="message" placeholder="Your Message" rows="5" required></textarea><br><br>
+<input type="email" name="email" placeholder="Your Email" required>
+
+<textarea name="message" rows="5" placeholder="Your Message" required></textarea>
 
 <button type="submit">Send Message</button>
 
 </form>
 
-<p>Email: umekalsoom9965@gmail.com</p>
+<p><strong>Email:</strong> umekalsoom9965@gmail.com</p>
 
 <p>
-GitHub:
+<strong>GitHub:</strong>
 <a href="https://github.com/umm319" target="_blank">
 https://github.com/umm319
 </a>
 </p>
 
 </section>
-
-
 
 <footer>
 © 2026 Umme Kalsoom | Portfolio
