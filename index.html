@@ -6,251 +6,388 @@
 
     <!-- SEO -->
     <title>Umme Kalsoom | Machine Learning & Data Science Portfolio</title>
-    <meta name="description" content="Portfolio of Umme Kalsoom, a BS Mathematics with Data Science student at COMSATS University. Projects in Machine Learning, Python, Data Science, AI and Data Visualization.">
-    <meta name="keywords" content="Umme Kalsoom, Machine Learning, Data Science, Python, AI, Portfolio, COMSATS">
+
+    <meta
+        name="description"
+        content="Portfolio of Umme Kalsoom, a BS Mathematics with Data Science student at COMSATS University. Projects in Machine Learning, Python, Data Science, AI and Data Visualization."
+    >
+
+    <meta
+        name="keywords"
+        content="Umme Kalsoom, Machine Learning, Data Science, Python, AI, Portfolio, COMSATS"
+    >
+
     <meta name="author" content="Umme Kalsoom">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Umme Kalsoom | Portfolio">
-    <meta property="og:description" content="Machine Learning & Data Science Student Portfolio">
+    <!-- Open Graph / Social Share Preview -->
+    <meta property="og:title" content="Umme Kalsoom | Machine Learning & Data Science Portfolio">
+
+    <meta
+        property="og:description"
+        content="Machine Learning & Data Science Student Portfolio"
+    >
+
+    <meta
+        property="og:url"
+        content="https://umm319.github.io/umme-kalsoom-portfolio/"
+    >
+
     <meta property="og:type" content="website">
 
+    <!-- Favicon -->
+    <link
+        rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>U</text></svg>"
+    >
+
     <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        body{
-            font-family:Arial,sans-serif;
-            background:#f4f4f4;
-            color:#333;
-            line-height:1.6;
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
         }
 
-        nav{
-            background:#2c3e50;
-            padding:15px;
-            text-align:center;
-            position:sticky;
-            top:0;
+        nav {
+            background: #2c3e50;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        nav a{
-            color:white;
-            text-decoration:none;
-            margin:15px;
-            font-weight:bold;
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-weight: bold;
         }
 
-        nav a:hover{
-            color:#f1c40f;
+        nav a:hover {
+            color: #f1c40f;
         }
 
-        header{
-            background:#34495e;
-            color:white;
-            padding:60px 20px;
-            text-align:center;
+        header {
+            background: #34495e;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
         }
 
-        section{
-            max-width:900px;
-            margin:auto;
-            background:white;
-            margin-top:20px;
-            padding:30px;
-            border-radius:10px;
-            box-shadow:0 0 10px rgba(0,0,0,.1);
+        header h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
         }
 
-        h2{
-            color:#2c3e50;
-            margin-bottom:15px;
+        header h2 {
+            color: white;
+            font-size: 24px;
         }
 
-        ul{
-            padding-left:20px;
+        section {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,.1);
         }
 
-        .project{
-            margin-bottom:20px;
-            padding:15px;
-            border-left:5px solid #3498db;
-            background:#f9f9f9;
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .project {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 5px solid #3498db;
+            background: #f9f9f9;
+        }
+
+        .project h3 {
+            margin-bottom: 8px;
+            color: #2c3e50;
         }
 
         form input,
-        form textarea{
-            width:100%;
-            padding:10px;
-            margin:10px 0;
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
 
-        button{
-            background:#3498db;
-            color:white;
-            border:none;
-            padding:10px 20px;
-            cursor:pointer;
-            border-radius:5px;
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
         }
 
-        button:hover{
-            background:#2980b9;
+        button:hover {
+            background: #2980b9;
         }
 
-        footer{
-            background:#2c3e50;
-            color:white;
-            text-align:center;
-            padding:20px;
-            margin-top:30px;
+        .github-link {
+            color: #3498db;
+            text-decoration: none;
         }
 
-        @media(max-width:768px){
-            nav a{
-                display:block;
-                margin:10px 0;
+        .github-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            header h2 {
+                font-size: 20px;
+            }
+
+            section {
+                margin: 15px;
+                padding: 20px;
             }
         }
+
     </style>
+
 </head>
 
 <body>
 
-<nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-</nav>
+    <!-- Navigation -->
+    <nav>
 
-<header>
-    <h1>Umme Kalsoom</h1>
-    <p>BS Mathematics with Data Science</p>
-    <br>
-    <h2 style="color:white;">Machine Learning & Data Science Student</h2>
-</header>
+        <a href="#about">About</a>
 
-<section id="about">
-    <h2>About Me</h2>
+        <a href="#skills">Skills</a>
 
-    <p>
-        I am a BS Mathematics with Data Science student at COMSATS University.
-        I am learning Python, Machine Learning, Artificial Intelligence,
-        Data Science, GitHub and Data Visualization.
-        My goal is to become a Machine Learning Engineer and build AI solutions
-        that solve real-world problems.
-    </p>
-</section>
+        <a href="#projects">Projects</a>
 
-<section id="skills">
+        <a href="#contact">Contact</a>
 
-<h2>Skills</h2>
+    </nav>
 
-<ul>
-<li>Python</li>
-<li>Machine Learning</li>
-<li>Data Science</li>
-<li>Artificial Intelligence</li>
-<li>HTML</li>
-<li>Git & GitHub</li>
-<li>Data Visualization</li>
-</ul>
 
-</section>
+    <!-- Header -->
+    <header>
 
-<section id="projects">
+        <h1>Umme Kalsoom</h1>
 
-<h2>Projects</h2>
+        <p>BS Mathematics with Data Science</p>
 
-<div class="project">
-<h3>CTR Prediction Case Study</h3>
+        <br>
 
-<p>
-Built a beginner Machine Learning workflow for Click Through Rate prediction
-including data preprocessing, feature engineering,
-model selection, training and evaluation.
-</p>
+        <h2>Machine Learning & Data Science Student</h2>
 
-</div>
+    </header>
 
-<div class="project">
 
-<h3>Netflix Audience Rating Classification</h3>
+    <!-- About -->
+    <section id="about">
 
-<p>
-Performed data preprocessing and classification
-on Netflix audience rating data using Machine Learning techniques.
-</p>
+        <h2>About Me</h2>
 
-</div>
+        <p>
+            I am a BS Mathematics with Data Science student at COMSATS University.
+            I am learning Python, Machine Learning, Artificial Intelligence,
+            Data Science, GitHub and Data Visualization.
+            My goal is to become a Machine Learning Engineer and build AI solutions
+            that solve real-world problems.
+        </p>
 
-<div class="project">
+    </section>
 
-<h3>Data Visualization</h3>
 
-<p>
-Created beginner-friendly charts and visualizations
-to understand datasets and communicate insights.
-</p>
+    <!-- Skills -->
+    <section id="skills">
 
-</div>
+        <h2>Skills</h2>
 
-</section>
+        <ul>
 
-<section id="contact">
+            <li>Python</li>
 
-<h2>Contact Me</h2>
+            <li>Machine Learning</li>
 
-<form action="https://formsubmit.co/umekalsoom9965@gmail.com" method="POST">
+            <li>Data Science</li>
 
-<input
-type="text"
-name="Name"
-placeholder="Your Name"
-required>
+            <li>Artificial Intelligence</li>
 
-<input
-type="email"
-name="Email"
-placeholder="Your Email"
-required>
+            <li>HTML</li>
 
-<textarea
-name="Message"
-rows="5"
-placeholder="Your Message"
-required></textarea>
+            <li>Git & GitHub</li>
 
-<button type="submit">
-Send Message
-</button>
+            <li>Data Visualization</li>
 
-</form>
+        </ul>
 
-<br>
+    </section>
 
-<p><strong>Email:</strong> umekalsoom9965@gmail.com</p>
 
-<p>
-<strong>GitHub:</strong>
-<a href="https://github.com/umm319" target="_blank">
-https://github.com/umm319
-</a>
-</p>
+    <!-- Projects -->
+    <section id="projects">
 
-</section>
+        <h2>Projects</h2>
 
-<footer>
 
-<p>
-© 2026 Umme Kalsoom | Machine Learning & Data Science Portfolio
-</p>
+        <div class="project">
 
-</footer>
+            <h3>CTR Prediction Case Study</h3>
+
+            <p>
+                Built a beginner Machine Learning workflow for Click Through Rate
+                prediction including data preprocessing, feature engineering,
+                model selection, training and evaluation.
+            </p>
+
+        </div>
+
+
+        <div class="project">
+
+            <h3>Netflix Audience Rating Classification</h3>
+
+            <p>
+                Performed data preprocessing and classification
+                on Netflix audience rating data using Machine Learning techniques.
+            </p>
+
+        </div>
+
+
+        <div class="project">
+
+            <h3>Data Visualization</h3>
+
+            <p>
+                Created beginner-friendly charts and visualizations
+                to understand datasets and communicate insights.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section id="contact">
+
+        <h2>Contact Me</h2>
+
+        <form
+            action="https://formsubmit.co/umekalsoom9965@gmail.com"
+            method="POST"
+        >
+
+            <input
+                type="text"
+                name="Name"
+                placeholder="Your Name"
+                required
+            >
+
+            <input
+                type="email"
+                name="Email"
+                placeholder="Your Email"
+                required
+            >
+
+            <textarea
+                name="Message"
+                rows="5"
+                placeholder="Your Message"
+                required
+            ></textarea>
+
+            <button type="submit">
+                Send Message
+            </button>
+
+        </form>
+
+
+        <br>
+
+        <p>
+            <strong>Email:</strong>
+            umekalsoom9965@gmail.com
+        </p>
+
+
+        <p>
+
+            <strong>GitHub:</strong>
+
+            <a
+                class="github-link"
+                href="https://github.com/umm319"
+                target="_blank"
+            >
+                https://github.com/umm319
+            </a>
+
+        </p>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Umme Kalsoom | Machine Learning & Data Science Portfolio
+        </p>
+
+    </footer>
+
+
+    <!-- Cloudflare Web Analytics -->
+    <script
+        type="module"
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "265879b97f5b4f6e8a7738e11f368d5b"}'>
+    </script>
+    <!-- End Cloudflare Web Analytics -->
+
 
 </body>
 </html>
