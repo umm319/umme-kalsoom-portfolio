@@ -1,393 +1,505 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umme Kalsoom | Machine Learning & Data Science Portfolio</title>
+<meta name="description" content="Portfolio of Umme Kalsoom, BS Mathematics with Data Science student at COMSATS University. Machine Learning intern at FlyRank AI and CodeAlpha. Python, C++, Java, R and OOP.">
+<meta name="keywords" content="Umme Kalsoom, Machine Learning, Data Science, Python, C++, Java, R, OOP, Portfolio, COMSATS, CodeAlpha, FlyRank AI">
+<meta name="author" content="Umme Kalsoom">
+<meta name="theme-color" content="#2f5bff">
+<meta property="og:title" content="Umme Kalsoom | Machine Learning & Data Science Portfolio">
+<meta property="og:description" content="Mathematics and Data Science student building machine learning projects. Intern at FlyRank AI and CodeAlpha.">
+<meta property="og:url" content="https://umm319.github.io/umme-kalsoom-portfolio/">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>U</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--ink:#0e1330;--muted:#545b78;--line:#dde1ee;--blue:#2f5bff;--coral:#ff5a4e;--mint:#0fa67a;--soft:#eaeefc;--serif:"Instrument Serif",Georgia,serif;--sans:"Hanken Grotesk","Segoe UI",Arial,sans-serif}
+@media(prefers-color-scheme:dark){:root{--bg:#0b0f24;--card:#131a38;--ink:#eef0fb;--muted:#a3abc9;--line:#26305a;--blue:#7b99ff;--coral:#ff7d72;--mint:#3fd6a6;--soft:#1a2348}}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.65}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
 
-    <!-- SEO -->
-    <title>Umme Kalsoom | Machine Learning & Data Science Portfolio</title>
+/* nav */
+header.top{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font:400 26px var(--serif);color:var(--ink);text-decoration:none}
+.links{display:flex;gap:24px}
+.links a{color:var(--ink);text-decoration:none;font-weight:500}
+.links a:hover{color:var(--blue)}
+#burger{display:none;background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:6px 14px;font:inherit;cursor:pointer}
 
-    <meta
-        name="description"
-        content="Portfolio of Umme Kalsoom, a BS Mathematics with Data Science student at COMSATS University. Projects in Machine Learning, Python, Data Science, AI and Data Visualization."
-    >
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1.05fr;gap:44px;align-items:center;padding:84px 0 76px}
+.hero .hi{color:var(--blue);font-weight:700;margin-bottom:8px}
+.hero h1{font:400 clamp(48px,7vw,88px)/1.02 var(--serif);letter-spacing:-.015em}
+.hero h1 em{font-style:italic}
+.hero .lead{color:var(--muted);font-size:18px;max-width:46ch;margin:18px 0 24px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:11px 22px;border-radius:10px;font:700 15px var(--sans);text-decoration:none;border:1.5px solid var(--ink);color:var(--ink);background:none;cursor:pointer}
+.btn.pri{background:var(--ink);color:var(--bg)}
+.btn:hover{border-color:var(--blue);background:var(--blue);color:#fff}
+.btn.sm{padding:6px 14px;font-size:14px;border-color:var(--line)}
 
-    <meta
-        name="keywords"
-        content="Umme Kalsoom, Machine Learning, Data Science, Python, AI, Portfolio, COMSATS"
-    >
+/* playground */
+.lab{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 18px 16px}
+.labtop{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline;margin-bottom:6px}
+.labtop b{font:400 22px var(--serif)}
+.labtop span{color:var(--muted);font-size:14px}
+#plot{width:100%;height:auto;cursor:crosshair;touch-action:manipulation;display:block;background:var(--soft);border-radius:12px}
+#plot .grid{stroke:var(--line);stroke-width:1}
+#plot circle{fill:var(--blue);cursor:pointer}
+#plot circle.o{fill:var(--coral)}
+#plot #fit{stroke:var(--mint);stroke-width:3.5;stroke-linecap:round}
+#plot #res line{stroke:var(--muted);stroke-width:1;stroke-dasharray:3 3;opacity:.7}
+.readout{display:flex;flex-wrap:wrap;gap:6px 22px;margin:12px 2px 10px;font-size:15px}
+.readout b{font-weight:700}
+.labbtns{display:flex;flex-wrap:wrap;gap:8px}
 
-    <meta name="author" content="Umme Kalsoom">
+/* sections */
+section{padding:60px 0;border-top:1px solid var(--line)}
+h2{font:400 clamp(36px,5vw,52px)/1.05 var(--serif);letter-spacing:-.01em;margin-bottom:6px}
+.sub{color:var(--muted);margin-bottom:28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.card h3{font:400 26px/1.15 var(--serif)}
+.card p{color:var(--muted);flex:1}
+.when{font-size:14.5px;color:var(--blue);font-weight:700}
+.card a{font-weight:700;text-decoration:none}
+.card a:hover{text-decoration:underline}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{background:var(--soft);padding:2px 13px;border-radius:30px;font-size:14.5px;font-weight:500}
+.viz{width:100%;height:auto;background:var(--soft);border-radius:12px;padding:6px}
+.cid{font-size:14px;color:var(--muted)}
+.exp{border-left:4px solid var(--blue)}
+.exp.g{border-left-color:var(--mint)}
+.exp.c{border-left-color:var(--coral)}
 
-    <!-- Open Graph / Social Share Preview -->
-    <meta property="og:title" content="Umme Kalsoom | Machine Learning & Data Science Portfolio">
+.statband{background:var(--ink);color:var(--bg)}
+.statband .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding-top:40px;padding-bottom:40px;text-align:center}
+.statband b{display:block;font:400 60px/1 var(--serif)}
+.statband span{font-size:15px;opacity:.8}
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:start}
+.about>div:first-child{font-size:18px;max-width:62ch}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.step b{font:400 54px/1 var(--serif);color:var(--blue)}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;text-align:left;max-width:1180px;margin:0 auto 22px}
+.fgrid b{display:block;font:400 24px var(--serif);color:var(--ink);margin-bottom:8px}
+.fgrid a{display:block;color:var(--muted);text-decoration:none;padding:2px 0}
+.fgrid a:hover{color:var(--blue)}
+.fgrid p{max-width:36ch}
+@media(max-width:860px){.statband .wrap{grid-template-columns:repeat(2,1fr)}.about,.fgrid{grid-template-columns:1fr}}
+::selection{background:var(--blue);color:#fff}
+#prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--blue),var(--mint));z-index:50}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:8px;z-index:60}
+.skip:focus{left:8px}
+.links a.on{color:var(--blue)}
+.lab{box-shadow:0 24px 70px rgba(47,91,255,.16)}
+.card{transition:transform .25s,box-shadow .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(14,19,48,.1);border-color:var(--blue)}
+#experience,#process,#certificates{background:color-mix(in srgb,var(--soft) 55%,var(--bg))}
+#skills .card{border-top:5px solid var(--blue)}
+#skills .card:nth-child(2){border-top-color:var(--mint)}
+#skills .card:nth-child(3){border-top-color:var(--coral)}
+#skills .card:nth-child(4){border-top-color:#8b5cf6}
+#certificates .card{border-top:5px solid var(--mint)}
+#certificates .card:first-child{border-top-color:var(--blue)}
+#certificates .card:last-child{border-top-color:var(--coral)}
+.chips span{transition:background .2s,color .2s}
+.chips span:hover{background:var(--blue);color:var(--bg)}
+#top-btn{position:fixed;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;border:0;background:var(--ink);color:var(--bg);font-size:20px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s;z-index:40}
+#top-btn.show{opacity:1;pointer-events:auto}
+.js .rv{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.js .rv.in{opacity:1;transform:none;transition:opacity .6s,transform .25s,box-shadow .25s,border-color .25s}
+.js .rv.in.card:hover{transform:translateY(-4px)}
+@media(prefers-reduced-motion:reduce){.js .rv,.js .rv.in{opacity:1;transform:none;transition:none}#prog{transition:none}}
+@keyframes up{from{opacity:0;transform:translateY(26px)}}
+@keyframes inR{from{opacity:0;transform:translateX(40px)}}
+@keyframes pop{from{opacity:0;transform:scale(.6)}}
+@keyframes grow{from{transform:scaleY(0)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes float{to{transform:translate(60px,50px) scale(1.12)}}
+.w{display:inline-block;animation:up .7s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i)*70ms + 100ms)}
+.hero .hi{animation:up .7s cubic-bezier(.2,.7,.2,1) both}
+.hero .lead{animation:up .7s .7s cubic-bezier(.2,.7,.2,1) both}
+.hero .btns{animation:up .7s .85s cubic-bezier(.2,.7,.2,1) both}
+.lab{animation:inR .9s .25s cubic-bezier(.2,.7,.2,1) both}
+.glow{position:fixed;border-radius:50%;filter:blur(90px);opacity:.28;z-index:-1;pointer-events:none;animation:float 20s ease-in-out infinite alternate}
+.g1{width:420px;height:420px;background:var(--blue);top:-120px;right:-120px}
+.g2{width:380px;height:380px;background:var(--mint);bottom:-140px;left:-120px;animation-delay:-9s}
+.btn{transition:background .2s,border-color .2s,color .2s,transform .15s}
+.btn:active{transform:scale(.97)}
+#plot circle{transform-box:fill-box;transform-origin:center}
+#plot circle.intro{animation:pop .5s cubic-bezier(.2,.7,.2,1) backwards}
+.fitin{stroke-dasharray:420;stroke-dashoffset:420;animation:draw 1.2s 1.3s ease-out forwards}
+.rv.in .chips span{animation:pop .45s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:calc(var(--c,0)*45ms + 250ms)}
+.viz rect,.viz circle{transform-box:fill-box}
+.viz rect{transform-origin:bottom}
+.viz circle{transform-origin:center}
+.viz :nth-child(1){--d:0ms}.viz :nth-child(2){--d:90ms}.viz :nth-child(3){--d:180ms}
+.viz :nth-child(4){--d:270ms}.viz :nth-child(5){--d:360ms}.viz :nth-child(6){--d:450ms}
+.rv.in .viz rect{animation:grow .7s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:var(--d,0ms)}
+.rv.in .viz circle{animation:pop .5s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:calc(var(--d,0ms) + 150ms)}
+.rv .viz polyline{stroke-dasharray:400;stroke-dashoffset:400}
+.rv.in .viz polyline{animation:draw 1.4s .35s ease-out forwards}
+@media(prefers-reduced-motion:reduce){
+  .w,.hero .hi,.hero .lead,.hero .btns,.lab,.glow,.rv.in .chips span,.rv.in .viz rect,.rv.in .viz circle,.rv.in .viz polyline,#plot circle.intro{animation:none}
+  .rv .viz polyline{stroke-dashoffset:0}
+  .fitin{stroke-dasharray:none;stroke-dashoffset:0;animation:none}
+}
+:root[data-theme=dark]{--bg:#0b0f24;--card:#131a38;--ink:#eef0fb;--muted:#a3abc9;--line:#26305a;--blue:#7b99ff;--coral:#ff7d72;--mint:#3fd6a6;--soft:#1a2348}
+:root[data-theme=light]{--bg:#f6f7fb;--card:#fff;--ink:#0e1330;--muted:#545b78;--line:#dde1ee;--blue:#2f5bff;--coral:#ff5a4e;--mint:#0fa67a;--soft:#eaeefc}
+#theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:20px;padding:4px 14px;font:inherit;font-weight:500;cursor:pointer}
+#theme:hover{border-color:var(--blue);color:var(--blue)}
+@media(max-width:860px){#theme{margin-top:12px;align-self:flex-start}}
+/* contact */
+.cgrid{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:start}
+form{display:grid;gap:12px}
+input,textarea{width:100%;padding:13px 16px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit}
+.reach{display:grid;gap:12px}
+footer{border-top:1px solid var(--line);padding:26px 20px;text-align:center;color:var(--muted);font-size:15px}
 
-    <meta
-        property="og:description"
-        content="Machine Learning & Data Science Student Portfolio"
-    >
-
-    <meta
-        property="og:url"
-        content="https://umm319.github.io/umme-kalsoom-portfolio/"
-    >
-
-    <meta property="og:type" content="website">
-
-    <!-- Favicon -->
-    <link
-        rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>U</text></svg>"
-    >
-
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        nav {
-            background: #2c3e50;
-            padding: 15px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 15px;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: #f1c40f;
-        }
-
-        header {
-            background: #34495e;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-
-        header h2 {
-            color: white;
-            font-size: 24px;
-        }
-
-        section {
-            max-width: 900px;
-            margin: 20px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,.1);
-        }
-
-        h2 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        .project {
-            margin-bottom: 20px;
-            padding: 15px;
-            border-left: 5px solid #3498db;
-            background: #f9f9f9;
-        }
-
-        .project h3 {
-            margin-bottom: 8px;
-            color: #2c3e50;
-        }
-
-        form input,
-        form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            background: #3498db;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        button:hover {
-            background: #2980b9;
-        }
-
-        .github-link {
-            color: #3498db;
-            text-decoration: none;
-        }
-
-        .github-link:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 30px;
-        }
-
-        @media (max-width: 768px) {
-
-            nav a {
-                display: block;
-                margin: 10px 0;
-            }
-
-            header h1 {
-                font-size: 32px;
-            }
-
-            header h2 {
-                font-size: 20px;
-            }
-
-            section {
-                margin: 15px;
-                padding: 20px;
-            }
-        }
-
-    </style>
-
+@media(max-width:860px){
+  #burger{display:block}
+  .links{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg);flex-direction:column;gap:0;padding:6px 24px 14px;border-bottom:1px solid var(--line)}
+  .links.open{display:flex}
+  .links a{padding:12px 0;border-bottom:1px solid var(--line)}
+  .hero,.cgrid{grid-template-columns:1fr}
+  .hero{padding-top:36px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
 </head>
-
 <body>
-
-    <!-- Navigation -->
-    <nav>
-
-        <a href="#about">About</a>
-
-        <a href="#skills">Skills</a>
-
-        <a href="#projects">Projects</a>
-
-        <a href="#contact">Contact</a>
-
-    </nav>
-
-
-    <!-- Header -->
-    <header>
-
-        <h1>Umme Kalsoom</h1>
-
-        <p>BS Mathematics with Data Science</p>
-
-        <br>
-
-        <h2>Machine Learning & Data Science Student</h2>
-
-    </header>
-
-
-    <!-- About -->
-    <section id="about">
-
-        <h2>About Me</h2>
-
-        <p>
-            I am a BS Mathematics with Data Science student at COMSATS University.
-            I am learning Python, Machine Learning, Artificial Intelligence,
-            Data Science, GitHub and Data Visualization.
-            My goal is to become a Machine Learning Engineer and build AI solutions
-            that solve real-world problems.
-        </p>
-
-    </section>
-
-
-    <!-- Skills -->
-    <section id="skills">
-
-        <h2>Skills</h2>
-
-        <ul>
-
-            <li>Python</li>
-
-            <li>Machine Learning</li>
-
-            <li>Data Science</li>
-
-            <li>Artificial Intelligence</li>
-
-            <li>HTML</li>
-
-            <li>Git & GitHub</li>
-
-            <li>Data Visualization</li>
-
-        </ul>
-
-    </section>
-
-
-    <!-- Projects -->
-    <section id="projects">
-
-        <h2>Projects</h2>
-
-
-        <div class="project">
-
-            <h3>CTR Prediction Case Study</h3>
-
-            <p>
-                Built a beginner Machine Learning workflow for Click Through Rate
-                prediction including data preprocessing, feature engineering,
-                model selection, training and evaluation.
-            </p>
-
-        </div>
-
-
-        <div class="project">
-
-            <h3>Netflix Audience Rating Classification</h3>
-
-            <p>
-                Performed data preprocessing and classification
-                on Netflix audience rating data using Machine Learning techniques.
-            </p>
-
-        </div>
-
-
-        <div class="project">
-
-            <h3>Data Visualization</h3>
-
-            <p>
-                Created beginner-friendly charts and visualizations
-                to understand datasets and communicate insights.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- Contact -->
-    <section id="contact">
-
-        <h2>Contact Me</h2>
-
-        <form
-            action="https://formsubmit.co/umekalsoom9965@gmail.com"
-            method="POST"
-        >
-
-            <input
-                type="text"
-                name="Name"
-                placeholder="Your Name"
-                required
-            >
-
-            <input
-                type="email"
-                name="Email"
-                placeholder="Your Email"
-                required
-            >
-
-            <textarea
-                name="Message"
-                rows="5"
-                placeholder="Your Message"
-                required
-            ></textarea>
-
-            <button type="submit">
-                Send Message
-            </button>
-
-        </form>
-
-
-        <br>
-
-        <p>
-            <strong>Email:</strong>
-            umekalsoom9965@gmail.com
-        </p>
-
-
-        <p>
-
-            <strong>GitHub:</strong>
-
-            <a
-                class="github-link"
-                href="https://github.com/umm319"
-                target="_blank"
-            >
-                https://github.com/umm319
-            </a>
-
-        </p>
-
-    </section>
-
-
-    <!-- Footer -->
-    <footer>
-
-        <p>
-            © 2026 Umme Kalsoom | Machine Learning & Data Science Portfolio
-        </p>
-
-    </footer>
-
-
-    <!-- Cloudflare Web Analytics -->
-    <script
-        type="module"
-        src="https://static.cloudflareinsights.com/beacon.min.js"
-        data-cf-beacon='{"token": "265879b97f5b4f6e8a7738e11f368d5b"}'>
-    </script>
-    <!-- End Cloudflare Web Analytics -->
-
-
+<div class="glow g1"></div><div class="glow g2"></div>
+<div id="prog"></div>
+<a class="skip" href="#top">Skip to content</a>
+<button id="top-btn" type="button" aria-label="Back to top">&uarr;</button>
+
+<header class="top"><div class="wrap">
+  <a class="logo" href="#top">Umme Kalsoom</a>
+  <button id="burger" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+  <nav class="links" id="menu">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#contact">Contact</a>
+    <button id="theme" type="button" aria-label="Switch light or dark theme">Theme</button>
+  </nav>
+</div></header>
+
+<main id="top">
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <p class="hi">Umme Kalsoom | Machine Learning & Data Science</p>
+      <h1><span class="w" style="--i:0">I</span> <span class="w" style="--i:1">teach</span> <span class="w" style="--i:2">machines</span> <span class="w" style="--i:3">to</span> <span class="w" style="--i:4">find</span> <em><span class="w" style="--i:5">patterns</span></em> <span class="w" style="--i:6">in</span> <span class="w" style="--i:7">data.</span></h1>
+      <p class="lead">BS Mathematics with Data Science student at COMSATS University Islamabad, Sahiwal Campus. Machine Learning intern at FlyRank AI and CodeAlpha. I work in Python, C++, Java and R, and I am aiming to become a Machine Learning Engineer.</p>
+      <div class="btns">
+        <a class="btn pri" href="#projects">View projects</a>
+        <a class="btn" href="Umme_Kalsoom_CV.pdf" download>Download CV</a>
+        <a class="btn" href="https://github.com/umm319" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <div class="lab">
+      <div class="labtop"><b>Try it: fit a line</b><span>Click the plot to add a point. Click a point to remove it.</span></div>
+      <svg id="plot" viewBox="0 0 400 300" role="img" aria-label="Interactive scatter plot with a live least-squares line of best fit">
+        <defs><clipPath id="cp"><rect x="36" y="20" width="348" height="248"/></clipPath></defs>
+        <g class="grid">
+          <line x1="36" y1="268" x2="384" y2="268"/><line x1="36" y1="20" x2="36" y2="268"/>
+          <line x1="36" y1="144" x2="384" y2="144"/><line x1="210" y1="20" x2="210" y2="268"/>
+        </g>
+        <g id="res" clip-path="url(#cp)"></g>
+        <line id="fit" clip-path="url(#cp)" x1="0" y1="0" x2="0" y2="0"/>
+        <g id="pts"></g>
+      </svg>
+      <div class="readout" aria-live="polite">
+        <span id="eq"><b>y</b> = ...</span>
+        <span id="r2"></span>
+        <span id="cnt"></span>
+      </div>
+      <div class="labbtns">
+        <button class="btn sm" type="button" id="rand">New random data</button>
+        <button class="btn sm" type="button" id="outlier">Add an outlier</button>
+        <button class="btn sm" type="button" id="clear">Clear</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="statband"><div class="wrap">
+  <div><b>2</b><span>Machine Learning internships</span></div>
+  <div><b>4</b><span>Certificates earned</span></div>
+  <div><b>3</b><span>Projects built</span></div>
+  <div><b>40</b><span>Hours of leadership training</span></div>
+</div></div>
+
+<section id="about"><div class="wrap">
+  <h2>About me</h2>
+  <p class="sub">A mathematics student who likes turning numbers into decisions.</p>
+  <div class="about">
+    <div>
+      <p>I am a BS Mathematics with Data Science student at COMSATS University Islamabad, Sahiwal Campus. My degree gives me a strong base in statistics and mathematics, and my internships at FlyRank AI and CodeAlpha let me apply it to real machine learning problems.</p>
+      <p style="margin-top:14px">I work in Python, C++, Java and R. I enjoy framing a problem, preparing the data, building a baseline and checking whether the result can be trusted. My goal is to become a Machine Learning Engineer who builds AI that solves real-world problems.</p>
+      <p style="margin-top:14px">I speak English and Urdu.</p>
+    </div>
+    <div class="card">
+      <span class="when">2024 - Present</span>
+      <h3>BS Mathematics with Data Science</h3>
+      <p>COMSATS University Islamabad, Sahiwal Campus</p>
+      <div class="chips"><span>Machine Learning</span><span>Data Science</span><span>Data Structures & Algorithms</span><span>OOP</span><span>C++</span><span>Data Analytics</span><span>Statistics & Mathematics</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <h2>Experience & leadership</h2>
+  <p class="sub">Where I have learned by doing.</p>
+  <div class="grid">
+    <div class="card exp">
+      <span class="when">1 Jul - 7 Sep 2026 | Remote</span>
+      <h3>Machine Learning Intern, FlyRank AI</h3>
+      <p>Worked on ML assignments covering task framing, baselines, validation and research-claim review. Built an SEO content workflow that uses CTR and average search position to prioritize pages, using Python and GitHub.</p>
+    </div>
+    <div class="card exp g">
+      <span class="when">1 - 30 Aug 2026 | Virtual</span>
+      <h3>Machine Learning Intern, CodeAlpha</h3>
+      <p>Worked on Credit Scoring, Emotion Recognition from Speech, Handwritten Character Recognition and Disease Prediction, covering data preparation, classification, model development and evaluation.</p>
+    </div>
+    <div class="card exp c">
+      <span class="when">September 2026 | 40 hours</span>
+      <h3>2026 Aspire Leaders Program</h3>
+      <p>Aspire Institute. Completed all modules, building critical thinking, communication skills and a commitment to positive social impact in a global community.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills</h2>
+  <p class="sub">The tools and ideas I work with.</p>
+  <div class="grid">
+    <div class="card"><h3>Programming</h3><div class="chips"><span>Python</span><span>C++</span><span>Java</span><span>R</span><span>OOP</span></div></div>
+    <div class="card"><h3>Machine Learning</h3><div class="chips"><span>Classification</span><span>Regression</span><span>Decision Trees</span><span>Logistic Regression</span><span>SVM</span><span>Naive Bayes</span></div></div>
+    <div class="card"><h3>Data Science</h3><div class="chips"><span>Data Analysis</span><span>EDA</span><span>Data Visualization</span><span>Statistical Analysis</span></div></div>
+    <div class="card"><h3>Tools</h3><div class="chips"><span>Git</span><span>GitHub</span><span>Scikit-learn</span><span>RStudio</span><span>ggplot2</span><span>Anaconda</span><span>NetBeans</span><span>Visual Studio</span></div></div>
+  </div>
+  <p class="sub" style="margin:22px 0 0">Education: BS Mathematics with Data Science, COMSATS University Islamabad, Sahiwal Campus, 2024 - Present. Languages: English, Urdu.</p>
+</div></section>
+
+<section id="process"><div class="wrap">
+  <h2>How I work on a problem</h2>
+  <p class="sub">The steps I follow in my machine learning projects and internship tasks.</p>
+  <div class="steps">
+    <div class="card step"><b>1</b><h3>Frame the problem</h3><p>Turn a question into a machine learning task: what to predict, from which data, and how success is measured.</p></div>
+    <div class="card step"><b>2</b><h3>Prepare the data</h3><p>Clean and explore the data, then engineer features that carry real signal.</p></div>
+    <div class="card step"><b>3</b><h3>Build and validate</h3><p>Start with a simple baseline, try models such as logistic regression, decision trees or SVM, and validate them properly.</p></div>
+    <div class="card step"><b>4</b><h3>Explain the results</h3><p>Visualize patterns, document the work on GitHub and communicate what the numbers mean.</p></div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2>Projects</h2>
+  <p class="sub">Machine learning and data work I have built.</p>
+  <div class="grid">
+    <article class="card">
+      <svg class="viz" viewBox="0 0 300 100" role="img" aria-label="Bars showing click-through rate falling with search position"><g fill="#2f5bff"><rect x="24" y="14" width="28" height="80" rx="6"/><rect x="66" y="32" width="28" height="62" rx="6"/><rect x="108" y="50" width="28" height="44" rx="6"/><rect x="150" y="64" width="28" height="30" rx="6"/><rect x="192" y="74" width="28" height="20" rx="6"/><rect x="234" y="82" width="28" height="12" rx="6"/></g></svg>
+      <h3>SEO Content Optimization & CTR Prediction</h3>
+      <p>A baseline workflow that uses CTR and average search position to prioritize web pages for SEO improvement, using data analysis and ML task framing.</p>
+      <div class="chips"><span>Python</span><span>Scikit-learn</span><span>Machine Learning</span></div>
+      <a href="https://github.com/umm319" target="_blank" rel="noopener">View on GitHub</a>
+    </article>
+    <article class="card">
+      <svg class="viz" viewBox="0 0 300 100" role="img" aria-label="Two clusters of points separated by a dashed line"><g fill="#ff5a4e"><circle cx="50" cy="28" r="7"/><circle cx="80" cy="50" r="7"/><circle cx="45" cy="68" r="7"/><circle cx="105" cy="30" r="7"/><circle cx="90" cy="78" r="7"/></g><g fill="#2f5bff"><circle cx="200" cy="30" r="7"/><circle cx="235" cy="55" r="7"/><circle cx="212" cy="80" r="7"/><circle cx="262" cy="34" r="7"/><circle cx="182" cy="62" r="7"/></g><path d="M152 6L146 96" stroke="#8890ad" stroke-width="2.5" stroke-dasharray="6 6" stroke-linecap="round"/></svg>
+      <h3>Netflix Audience Rating Classification</h3>
+      <p>Explored patterns in audience ratings using data analysis and classification.</p>
+      <div class="chips"><span>Python</span><span>Classification</span><span>Data Analysis</span></div>
+      <a href="https://github.com/umm319" target="_blank" rel="noopener">View on GitHub</a>
+    </article>
+    <article class="card">
+      <svg class="viz" viewBox="0 0 300 100" role="img" aria-label="Line chart drawn over bars"><g fill="#8fa5ff" opacity=".55"><rect x="28" y="56" width="28" height="38" rx="6"/><rect x="76" y="40" width="28" height="54" rx="6"/><rect x="124" y="66" width="28" height="28" rx="6"/><rect x="172" y="30" width="28" height="64" rx="6"/><rect x="220" y="46" width="28" height="48" rx="6"/></g><polyline points="42,44 90,26 138,52 186,16 234,34" fill="none" stroke="#0fa67a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      <h3>Data Visualization</h3>
+      <p>Visual analyses that explore and communicate patterns in datasets.</p>
+      <div class="chips"><span>Python</span><span>R</span><span>Statistics</span></div>
+      <a href="https://github.com/umm319" target="_blank" rel="noopener">View on GitHub</a>
+    </article>
+  </div>
+</div></section>
+
+<section id="certificates"><div class="wrap">
+  <h2>Certificates</h2>
+  <p class="sub">Completions from 2026. Open any certificate to see the original.</p>
+  <div class="grid">
+    <div class="card"><span class="when">CodeAlpha | Issued 1 Sep 2026</span><h3>Machine Learning Virtual Internship</h3><span class="cid">Student ID CA/DF1/221300</span><a href="certificates/codealpha-machine-learning-internship.pdf" target="_blank" rel="noopener">View certificate</a></div>
+    <div class="card"><span class="when">FlyRank AI | Issued 7 Sep 2026</span><h3>Machine Learning</h3><span class="cid">ID FR-D11-A1FCA-24FFD</span><a href="certificates/flyrank-machine-learning.pdf" target="_blank" rel="noopener">View certificate</a></div>
+    <div class="card"><span class="when">FlyRank AI | Issued 7 Sep 2026</span><h3>AI Fluency</h3><span class="cid">ID FR-D11-73C56-B2334</span><a href="certificates/flyrank-ai-fluency.pdf" target="_blank" rel="noopener">View certificate</a></div>
+    <div class="card"><span class="when">Aspire Institute | September 2026</span><h3>2026 Aspire Leaders Program</h3><span class="cid">40 hours of coursework</span><a href="certificates/aspire-leaders-program.pdf" target="_blank" rel="noopener">View certificate</a></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <h2>Contact me</h2>
+  <p class="sub">Open to internships, collaborations and questions.</p>
+  <div class="cgrid">
+    <form action="https://formsubmit.co/umekalsoom9965@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New message from my portfolio">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="Name" placeholder="Your name" aria-label="Your name" required>
+      <input type="email" name="Email" placeholder="Your email" aria-label="Your email" required>
+      <textarea name="Message" rows="5" placeholder="Your message" aria-label="Your message" required></textarea>
+      <button class="btn pri" type="submit">Send message</button>
+    </form>
+    <div class="reach">
+      <button class="btn pri" type="button" id="mail">Email me</button>
+      <a class="btn" href="https://github.com/umm319" target="_blank" rel="noopener">GitHub profile</a>
+      <a class="btn" href="Umme_Kalsoom_CV.pdf" download>Download CV</a>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer>
+  <div class="fgrid">
+    <div><b>Umme Kalsoom</b><p>Machine Learning & Data Science student at COMSATS University. Open to internships, collaborations and questions.</p></div>
+    <div><b>Explore</b><a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#certificates">Certificates</a></div>
+    <div><b>Connect</b><a href="#contact">Contact form</a><a href="https://github.com/umm319" target="_blank" rel="noopener">GitHub</a><a href="Umme_Kalsoom_CV.pdf" download>Download CV</a></div>
+  </div>
+  <p>&copy; 2026 Umme Kalsoom | Machine Learning & Data Science Portfolio</p>
+</footer>
+
+<script>
+document.getElementById('mail').addEventListener('click',function(){
+  location.href='mailto:'+['umekalsoom9965','gmail.com'].join('@');
+});
+document.getElementById('theme').addEventListener('click',function(){
+  var r=document.documentElement,d=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+  r.dataset.theme=d?'light':'dark';
+});
+var burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o);});
+menu.addEventListener('click',function(e){if(e.target.tagName==='A'){menu.classList.remove('open');burger.setAttribute('aria-expanded','false');}});
+
+document.documentElement.classList.add('js');
+(function(){
+  var prog=document.getElementById('prog'),topb=document.getElementById('top-btn');
+  function onScroll(){
+    var d=document.documentElement,max=d.scrollHeight-d.clientHeight;
+    prog.style.width=(max>0?d.scrollTop/max*100:0)+'%';
+    topb.classList.toggle('show',d.scrollTop>700);
+  }
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  topb.addEventListener('click',function(){scrollTo({top:0,behavior:'smooth'})});
+  if('IntersectionObserver' in window){
+    var links=document.querySelectorAll('#menu a');
+    var nav=new IntersectionObserver(function(l){l.forEach(function(x){
+      if(x.isIntersecting)links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+x.target.id);});
+    });},{rootMargin:'-40% 0px -55% 0px'});
+    document.querySelectorAll('main section[id]').forEach(function(s){nav.observe(s);});
+    var els=document.querySelectorAll('.card,.statband .wrap>div,main h2');
+    els.forEach(function(e){e.classList.add('rv');});
+    var io=new IntersectionObserver(function(l){l.forEach(function(x){
+      if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}
+    });},{threshold:.08});
+    els.forEach(function(e){io.observe(e);});
+  }
+})();
+(function(){
+  var reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.chips').forEach(function(c){
+    Array.prototype.forEach.call(c.children,function(s,i){s.style.setProperty('--c',i);});
+  });
+  var band=document.querySelector('.statband');
+  if(band&&!reduced&&'IntersectionObserver' in window){
+    var bo=new IntersectionObserver(function(l){
+      if(!l[0].isIntersecting)return;
+      bo.disconnect();
+      band.querySelectorAll('b').forEach(function(b){
+        var to=+b.textContent,t0=null;b.textContent='0';
+        function f(ts){
+          if(!t0)t0=ts;
+          var k=Math.min((ts-t0)/1300,1),e=1-Math.pow(1-k,3);
+          b.textContent=Math.round(to*e);
+          if(k<1)requestAnimationFrame(f);
+        }
+        requestAnimationFrame(f);
+      });
+    },{threshold:.4});
+    bo.observe(band);
+  }
+})();
+/* live least-squares playground */
+(function(){
+  var NS='http://www.w3.org/2000/svg',svg=document.getElementById('plot'),g=document.getElementById('pts'),res=document.getElementById('res'),fit=document.getElementById('fit');
+  var eq=document.getElementById('eq'),r2=document.getElementById('r2'),cnt=document.getElementById('cnt');
+  var X0=36,X1=384,Y0=268,Y1=20,pts=[],intro=true;
+  function px(x){return X0+x/100*(X1-X0)}
+  function py(y){return Y0-y/100*(Y0-Y1)}
+  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e}
+  function seed(random){
+    pts=[];var s=7;
+    function rnd(){if(random)return Math.random();s=(s*9301+49297)%233280;return s/233280}
+    var m=0.35+rnd()*0.5,b=8+rnd()*14;
+    for(var i=0;i<14;i++){var x=6+rnd()*88;pts.push([x,Math.max(2,Math.min(98,b+m*x+(rnd()-.5)*22))])}
+    draw();
+  }
+  function draw(){
+    g.innerHTML='';res.innerHTML='';
+    var n=pts.length,sx=0,sy=0,i;
+    pts.forEach(function(p){sx+=p[0];sy+=p[1]});
+    var mx=sx/n,my=sy/n,sxx=0,sxy=0,syy=0;
+    pts.forEach(function(p){sxx+=(p[0]-mx)*(p[0]-mx);sxy+=(p[0]-mx)*(p[1]-my);syy+=(p[1]-my)*(p[1]-my)});
+    var ok=n>=2&&sxx>0,m=0,b=0,sd=0;
+    if(ok){
+      m=sxy/sxx;b=my-m*mx;
+      var ss=0;pts.forEach(function(p){var e=p[1]-(m*p[0]+b);ss+=e*e});
+      sd=Math.sqrt(ss/n);
+      fit.setAttribute('x1',px(0));fit.setAttribute('y1',py(b));
+      fit.setAttribute('x2',px(100));fit.setAttribute('y2',py(m*100+b));
+      fit.style.display='';
+      var r=syy>0?(sxy*sxy)/(sxx*syy):1;
+      eq.innerHTML='<b>y</b> = '+m.toFixed(2)+' x '+(b<0?'- ':'+ ')+Math.abs(b).toFixed(1);
+      r2.innerHTML='<b>R&sup2;</b> = '+r.toFixed(2);
+    }else{
+      fit.style.display='none';
+      eq.textContent='Add at least 2 points';r2.textContent='';
+    }
+    cnt.textContent=n+' points';
+    pts.forEach(function(p,i){
+      var e=ok?p[1]-(m*p[0]+b):0;
+      if(ok)res.appendChild(el('line',{x1:px(p[0]),y1:py(p[1]),x2:px(p[0]),y2:py(m*p[0]+b)}));
+      var c=el('circle',{cx:px(p[0]),cy:py(p[1]),r:6,'data-i':i});
+      var cls=(ok&&n>5&&Math.abs(e)>2*sd)?'o':'';
+      if(intro){cls+=' intro';c.style.animationDelay=(500+i*70)+'ms';}
+      if(cls)c.setAttribute('class',cls.trim());
+      g.appendChild(c);
+    });
+  }
+  svg.addEventListener('click',function(e){
+    if(e.target.tagName==='circle'){pts.splice(+e.target.getAttribute('data-i'),1);draw();return}
+    var r=svg.getBoundingClientRect(),vx=(e.clientX-r.left)*400/r.width,vy=(e.clientY-r.top)*300/r.height;
+    var x=(vx-X0)/(X1-X0)*100,y=(Y0-vy)/(Y0-Y1)*100;
+    if(x<0||x>100||y<0||y>100)return;
+    pts.push([x,y]);draw();
+  });
+  document.getElementById('rand').addEventListener('click',function(){seed(true)});
+  document.getElementById('clear').addEventListener('click',function(){pts=[];draw()});
+  document.getElementById('outlier').addEventListener('click',function(){
+    pts.push([10+Math.random()*80,Math.random()<.5?92+Math.random()*6:2+Math.random()*6]);draw();
+  });
+  fit.classList.add('fitin');seed(false);intro=false;setTimeout(function(){fit.classList.remove('fitin')},2800);
+})();
+</script>
+
+<!-- Cloudflare Web Analytics -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "265879b97f5b4f6e8a7738e11f368d5b"}'></script>
+<!-- End Cloudflare Web Analytics -->
 </body>
 </html>
